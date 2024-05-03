@@ -36,6 +36,33 @@ class Conteudos_dos_exemplos extends Controller
     'Disco criado sobre demanda (dinamicamente).';
 
 
+  public string $arquivoDoNewDisk = 
+  'Este arquivo está em:
+/storage/newDisk/example.txt
+
+por conta da configuração de quando foi salvo.
+
+em /config/filesystems:
+
+"disks" => [
+
+    "newDisk" => [  //disco customizado. Acessa \storage\newDisk
+    "driver => "local",
+    "root" => storage_path("newDisk"),  //cria a pasta /storage/newDisk
+    "throw" => false,
+], ...
+
+a escolha do disco na hora de salvar o arquivo se deu em:
+
+Storage::disk("newDisk")->put($nomeDoArquivoComExtensao, "new disk"); //disco customizado na configuração.
+
+para finalmente ser baixado em:
+
+return Storage::disk("newDisk")->download($this->nomeDoArquivoComExtensao);
+
+ou recuperado em:
+
+$customContent = Storage::disk($diskForSearch)->get($this->nomeDoArquivoComExtensao);';
 
 
 
