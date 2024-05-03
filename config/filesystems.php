@@ -33,13 +33,13 @@ return [
         'newDisk' => [  //disco customizado. Acessa \storage\newDisk
         'driver' => 'local',
         'root' => storage_path('newDisk'),
-        'throw' => false,
+        'throw' => true, //caso falhe, lança um League\Flysystem\UnableToWriteFile.
     ],
 
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
-            'throw' => false,
+            'throw' => true,
         ],
 
         'public' => [
